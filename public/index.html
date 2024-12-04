@@ -2,16 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic-Tac-Toe</title>
-  <link rel="stylesheet" href="./main.css">
-  <script src="./tic-tac-toe.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="./main.css">
+    <script src="./tic-tac-toe.js" defer></script>
 </head>
 
 <body>
-  <!-- HTML structure for the UI: -->
-  <!-- Your code here 
+    <!-- HTML structure for the UI: -->
+
+    <h1 id="winner-header">Winner: <span id="winner"></span></h1>
+
+    <div id="board">
+        <div id="square-0" class="square"></div>
+        <div id="square-1" class="square"></div>
+        <div id="square-2" class="square"></div>
+        <div id="square-3" class="square"></div>
+        <div id="square-4" class="square"></div>
+        <div id="square-5" class="square"></div>
+        <div id="square-6" class="square"></div>
+        <div id="square-7" class="square"></div>
+        <div id="square-8" class="square"></div>
+    </div>
+
+    <div id="buttons">
+        <button id="newGame">New Game</button>
+        <button id="giveUp">Give Up</button>
+    </div>
 </body>
 
 </html>
