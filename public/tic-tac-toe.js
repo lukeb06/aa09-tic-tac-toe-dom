@@ -52,7 +52,7 @@ function checkForWinner() {
         // ['', 'O', 'O', '', '', '', 'X', 'X', 'X']
         const boardState = Array.from(squares).map(square => square.textContent);
 
-        winningPositions.forEach((position, positionIndex) => {
+        winningPositions.forEach(position => {
             let matches = 0;
 
             boardState.forEach((square, squareIndex) => {
