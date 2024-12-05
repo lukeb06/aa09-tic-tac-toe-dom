@@ -5,10 +5,14 @@
     font-family: sans-serif;
 }
 
+h1 {
+    min-height: 37px;
+}
+
 body {
     display: grid;
     place-items: center;
-    gap: 2rem;
+    gap: 3rem;
     padding-top: 3rem;
 }
 
