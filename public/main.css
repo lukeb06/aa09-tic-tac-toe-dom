@@ -84,7 +84,7 @@ body {
 #buttons button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-    color: #333;
+    color: #888;
 }
 
 #buttons button:hover {
@@ -94,7 +94,7 @@ body {
 #buttons button:hover:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-    color: #333;
+    color: #888;
 }
 
 #buttons {
