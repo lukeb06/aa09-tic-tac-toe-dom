@@ -56,7 +56,7 @@ function checkForWinner() {
 
         let didWeWin = false;
 
-        winningPositions.forEach((position, positionIndex) => {
+        winningPositions.forEach(position => {
             let matches = 0;
 
             boardState.forEach((square, squareIndex) => {
