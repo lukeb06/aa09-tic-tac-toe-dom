@@ -44,9 +44,14 @@ body {
     position: relative;
 }
 
+.square:not(:empty) {
+    cursor: not-allowed;
+}
+
 .square::before {
     content: var(--square-text);
-    text-align: center;
+    display: grid;
+    place-items: center;
     inset: 5%;
     width: 90%;
     height: 90%;
@@ -57,7 +62,7 @@ body {
     position: absolute;
     color: rgba(0, 0, 0, 0.2);
 
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-out;
 }
 
 .square:not(:empty)::before {
