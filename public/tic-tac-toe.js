@@ -1,4 +1,6 @@
 const squares = document.querySelectorAll(".square");
+const newGame = document.getElementById('newGame');
+const giveUp = document.getElementById('giveUp');
 
 let turn = 'X';
 let gameIsRunning = true;
@@ -30,7 +32,7 @@ const winningPositions = [
 ];
 
 function makePlayerWin(player) {
-    document.getElementById("winner").textContent = player;
+    document.getElementById("winner").textContent = `Winner: ${player}`;
     gameIsRunning = false;
 }
 
@@ -52,7 +54,9 @@ function checkForWinner() {
         // ['', 'O', 'O', '', '', '', 'X', 'X', 'X']
         const boardState = Array.from(squares).map(square => square.textContent);
 
-        winningPositions.forEach((position, positionIndex) => {
+        let didWeWin = false;
+
+        winningPositions.forEach(position => {
             let matches = 0;
 
             boardState.forEach((square, squareIndex) => {
@@ -63,26 +67,27 @@ function checkForWinner() {
 
             if (matches == 3) {
                 makePlayerWin(checkPlayer);
-                return true;
+                didWeWin = true;
             }
         });
 
-        return false;
+        return didWeWin;
     }
 }
 
-document.getElementById('newGame').addEventListener('click', () => {
+newGame.addEventListener('click', () => {
     squares.forEach(square => {
         square.textContent = '';
     });
 
     turn = 'X';
     gameIsRunning = true;
+
     document.getElementById("winner").textContent = '';
 });
 
 
-document.getElementById('giveUp').addEventListener('click', () => {
+giveUp.addEventListener('click', () => {
     if (turn == 'X') {
         makePlayerWin('O');
     } else {
