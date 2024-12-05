@@ -34,6 +34,8 @@ const winningPositions = [
 function makePlayerWin(player) {
     document.getElementById("winner").textContent = `Winner: ${player}`;
     gameIsRunning = false;
+    newGame.disabled = false;
+    giveUp.disabled = true;
 }
 
 function checkForWinner() {
@@ -82,6 +84,8 @@ newGame.addEventListener('click', () => {
 
     turn = 'X';
     gameIsRunning = true;
+    newGame.disabled = true;
+    giveUp.disabled = false;
 
     document.getElementById("winner").textContent = '';
 });
