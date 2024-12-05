@@ -14,11 +14,9 @@ squares.forEach((square) => {
         square.textContent = turn;
 
         if (turn == 'X') {
-            turn = 'O';
-            changeSquareText('O');
+            changeTurn('O');
         } else {
-            turn = 'X';
-            changeSquareText('X');
+            changeTurn('X');
         }
 
         checkForWinner();
@@ -27,6 +25,11 @@ squares.forEach((square) => {
 
 function changeSquareText(text) {
     root.style.setProperty('--square-text', `"${text}"`);
+}
+
+function changeTurn(player) {
+    turn = player;
+    changeSquareText(player);
 }
 
 const winningPositions = [
@@ -45,6 +48,7 @@ function makePlayerWin(player) {
     gameIsRunning = false;
     newGame.disabled = false;
     giveUp.disabled = true;
+    changeTurn('');
 }
 
 function checkForWinner() {
@@ -91,8 +95,7 @@ newGame.addEventListener('click', () => {
         square.textContent = '';
     });
 
-    turn = 'X';
-    changeSquareText('X');
+    changeTurn('X');
     gameIsRunning = true;
     newGame.disabled = true;
     giveUp.disabled = false;
