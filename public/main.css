@@ -1,3 +1,7 @@
+:root {
+    --square-text: 'X';
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,6 +29,7 @@ body {
     border-radius: 2rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
     padding: 0.5rem;
+    overflow: hidden;
 }
 
 .square {
@@ -36,6 +41,31 @@ body {
     place-items: center;
 
     cursor: pointer;
+    position: relative;
+}
+
+.square::before {
+    content: var(--square-text);
+    text-align: center;
+    inset: 5%;
+    width: 90%;
+    height: 90%;
+    /*box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);*/
+    /*background-color: rgba(0, 0, 0, 0.1);*/
+    border-radius: 0.5rem;
+    opacity: 0;
+    position: absolute;
+    color: rgba(0, 0, 0, 0.2);
+
+    transition: opacity 0.3s ease;
+}
+
+.square:not(:empty)::before {
+    content: '';
+}
+
+.square:hover:empty::before {
+    opacity: 1;
 }
 
 #square-0 {
@@ -84,6 +114,7 @@ body {
     border-radius: 1rem;
     cursor: pointer;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    transition: background-color 0.1s ease;
 }
 
 #buttons button:disabled {

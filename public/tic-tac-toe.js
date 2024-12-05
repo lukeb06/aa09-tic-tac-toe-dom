@@ -5,20 +5,29 @@ const giveUp = document.getElementById('giveUp');
 let turn = 'X';
 let gameIsRunning = true;
 
+const root = document.documentElement;
+
 squares.forEach((square) => {
     square.addEventListener("click", () => {
         if (!gameIsRunning) return;
+        if (square.textContent) return;
         square.textContent = turn;
 
         if (turn == 'X') {
             turn = 'O';
+            changeSquareText('O');
         } else {
             turn = 'X';
+            changeSquareText('X');
         }
 
         checkForWinner();
     });
 });
+
+function changeSquareText(text) {
+    root.style.setProperty('--square-text', `"${text}"`);
+}
 
 const winningPositions = [
     [1, 1, 1, 0, 0, 0, 0, 0, 0],
@@ -83,6 +92,7 @@ newGame.addEventListener('click', () => {
     });
 
     turn = 'X';
+    changeSquareText('X');
     gameIsRunning = true;
     newGame.disabled = true;
     giveUp.disabled = false;
